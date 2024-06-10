@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web Sederhana</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --header-bg-color: #333;
+            --header-text-color: white;
+            --nav-bg-color: #444;
+            --nav-text-color: white;
+            --button-bg-color: #6fb8fc;
+            --button-hover-color: #418aff;
+            --button-text-color: rgba(255, 255, 255, 0.7);
+            --button-special-bg-color: #418aff;
+            --button-special-hover-color: #e7d956;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: var(--nav-bg-color);
+            color: var(--nav-text-color);
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: var(--nav-text-color);
+            text-decoration: none;
+        }
+
+        main {
+            display: flex;
+            margin: 20px;
+        }
+
+        main section, main aside {
+            padding: 20px;
+            background-color: white;
+            margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main section {
+            flex: 2;
+        }
+
+        main aside {
+            flex: 1;
+        }
+
+        footer {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        #screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #input, #output {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 1.5em;
+        }
+
+        #buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 1.5em;
+            background-color: var(--button-bg-color);
+            border: none;
+            color: var(--button-text-color);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        button#clear, button#equals {
+            background-color: var(--button-special-bg-color);
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        button#clear:hover, button#equals:hover {
+            background-color: var(--button-special-hover-color);
+        }
+
+        #why {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #why svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        #why svg:hover {
+            fill: #418aff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Halaman Kalkulator Sukro</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Pemrograman Website</a></li>
+            
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <form id="calculator-form">
+                <div id="screen">
+                    <div id="input"></div>
+                    <div id="output"></div>
+                </div>
+                <div id="buttons">
+                    <!-- Digit Buttons -->
+                    <button type="button" data-value="7">7</button>
+                    <button type="button" data-value="8">8</button>
+                    <button type="button" data-value="9">9</button>
+                    <button type="button" data-value="divide">&divide;</button>
+
+                    <button type="button" data-value="4">4</button>
+                    <button type="button" data-value="5">5</button>
+                    <button type="button" data-value="6">6</button>
+                    <button type="button" data-value="multiply">&times;</button>
+
+                    <button type="button" data-value="1">1</button>
+                    <button type="button" data-value="2">2</button>
+                    <button type="button" data-value="3">3</button>
+                    <button type="button" data-value="subtract">-</button>
+
+                    <button type="button" id="clear">AC</button>
+                    <button type="button" data-value="0">0</button>
+                    <button type="button" id="equals">=</button>
+                    <button type="button" data-value="add">+</button>
+                </div>
+            </form>
+            <button id="why">
+                <svg viewBox="0 0 24 24">
+                    <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z" style="fill:currentColor;"/>
+                </svg>
+            </button>
+        </section>
+        <aside>
+            <h2>Nama Anggota Kelompok</h2>
+            <ul>
+                <li>Muhammad Aryudha Pratama</li>
+                <li>Rey Gavrila Naibaho</li>
+                <li>M Raya Nugroho</li>
+                <li>Rakha Ukta Pamungkas</li>
+                <li>Fajar Eka Setiawan</li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+    </footer>
+
+    <!-- Add JavaScript for functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('input');
+            const output = document.getElementById('output');
+            let currentInput = '';
+            
+            document.querySelectorAll('#buttons button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    
+                    if (value) {
+                        if (value === 'add') {
+                            currentInput += '+';
+                        } else if (value === 'subtract') {
+                            currentInput += '-';
+                        } else if (value === 'multiply') {
+                            currentInput += '*';
+                        } else if (value === 'divide') {
+                            currentInput += '/';
+                        } else {
+                            currentInput += value;
+                        }
+                        
+                        input.textContent = currentInput;
+                    } else if (this.id === 'clear') {
+                        currentInput = '';
+                        input.textContent = '';
+                        output.textContent = '';
+                    } else if (this.id === 'equals') {
+                        try {
+                            output.textContent = eval(currentInput);
+                        } catch (e) {
+                            output.textContent = 'Error';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
